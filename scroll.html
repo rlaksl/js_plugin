@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤트리거 플러그인</title>
+  <link rel="stylesheet" href="./styles/base.css">
+  <!-- 스크롤트리거 플러그인 필수 연결 파일 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+  <style>
+    html, body {height: 500vh;}
+    main .bg {height: 100vh;}
+    main .bg1 {background: khaki;}
+    main .bg2 {background: pink;}
+    main .bg3 {background: lightblue;}
+    main .bg3 span {display: inline-block;}
+    main .bg4 {background: lightgray;}
+    main .bg * {text-align: center; padding-top: 200px; font-size: 3rem;}
+  </style>
+  <script>
+    window.onload = function(){
+      // 스크롤 트리거 작성법
+      /*
+      gsap.to("애니메이션 적용대상",{
+        scrollTrigger:"뷰포트 위치 인식대상",
+        duration:애니메이션속도,
+        애니메이션적용속성:속성값,
+        애니메이션적용속성:속성값,
+      })*/
+      gsap.to(".bg2 h2",{
+        scrollTrigger:".bg2",
+        duration:1,
+        y:200,
+        x:-100,
+        opacity:0.2,
+        fontSize:'20px',
+        transform:'rotate(10deg)'
+      })
+      gsap.to(".bg3 h3 span",{
+        scrollTrigger:".bg3",
+        duration:1,
+        transform:'rotate(179deg)',
+        /* fontWeight:'bold', */
+      })
+    }// onload end
+  </script>
+</head>
+<body>
+  <header>header</header>
+  <main>
+    <div class="bg bg1"><h1>Hello World</h1></div>
+    <div class="bg bg2"><h2>Scroll Trigger</h2></div>
+    <div class="bg bg3"><h3><span>Javascript</span></h3></div>
+    <div class="bg bg4"><p>Plugin</p></div>
+  </main>
+  <footer>footer</footer>
+</body>
+</html>

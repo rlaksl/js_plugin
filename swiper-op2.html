@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper op2</title>
+  <link rel="stylesheet" href="./styles/base.css">
+  <!--플러그인 필수 css cdn 연결-->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <!--플러그인 필수 JS cdn 연결-->
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <style>
+    main {background: lightgrey; width: 1200px; margin: 0 auto;}
+    main .popular {padding: 30px 0;}
+    main .popular h1 {font-size: 1.2rem; font-weight: 700;}
+    main .popular .container {margin: 40px 0; position: relative;}
+    main .popular .container .popular_s {background: lightgoldenrodyellow; width: 95%;}
+    main .popular .container .popular_s .swiper-slide {display: flex; flex-flow: column nowrap;}
+    main .popular .container .popular_s .swiper-slide a:first-child {background: aquamarine; width: 100%; height: 400px;}
+    main .popular .container .popular_s .swiper-slide a:first-child img {width: 100%; height: 100%;}
+    main .popular .container .popular_s .swiper-slide .category {color: #555;}
+    main .popular .container .popular_s .swiper-slide .book_name {margin: 10px 0; font-size: 1.1rem;}
+    main .popular .container .popular_s .swiper-slide .info {color: #aaa;}
+    /* swiper-button은 absolute를 가지고 있기 때문에 위치를 자유롭게 설정할 수 있다. */
+    main .popular .container .swiper-button-prev {left: 0; color: tomato; transform: scaleX(0.7);}
+    main .popular .container .swiper-button-next {right: 0; color: tomato; transform: scaleX(0.7);}
+    main .popular .container .swiper-pagination {bottom: -40px;}
+    main .popular .container .swiper-pagination-bullet {background-color: tomato; }
+    main .popular .container .swiper-pagination-bullet-active {width: 15px; height: 10px; border-radius: 10px;}
+  </style>
+</head>
+<body>
+  <main>
+    <div>...</div>
+    <div class="popular">
+      <h1>급상승! 많이 보고 있는 상품</h1>
+      <div class="container">
+        <!-- swiper에는 position:relative가 내장되어 있음 -->
+        <div class="swiper popular_s">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#"><img src="./젊은평론가상.jfif" alt="전설의 프로"></a>
+              <p class="category">경제/경영</p>
+              <a href="#" class="book_name">전설의 프로 트레이더 빅</a>
+              <p class="info">빅터 스페란데오 | 액티브</p>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"><img src="./재즈의 계절.jfif" alt="전설의 프로"></a>
+              <p class="category">경제/경영</p>
+              <a href="#" class="book_name">전설의 프로 트레이더 빅</a>
+              <p class="info">빅터 스페란데오 | 액티브</p>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"><img src="./패배의 신호.jfif" alt="전설의 프로"></a>
+              <p class="category">경제/경영</p>
+              <a href="#" class="book_name">전설의 프로 트레이더 빅</a>
+              <p class="info">빅터 스페란데오 | 액티브</p>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"><img src="./구의 증명.jfif" alt="전설의 프로"></a>
+              <p class="category">경제/경영</p>
+              <a href="#" class="book_name">전설의 프로 트레이더 빅</a>
+              <p class="info">빅터 스페란데오 | 액티브</p>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"><img src="./모든 계절이.jfif" alt="전설의 프로"></a>
+              <p class="category">경제/경영</p>
+              <a href="#" class="book_name">전설의 프로 트레이더 빅</a>
+              <p class="info">빅터 스페란데오 | 액티브</p>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"><img src="./결혼 여름.jfif" alt="전설의 프로"></a>
+              <p class="category">경제/경영</p>
+              <a href="#" class="book_name">전설의 프로 트레이더 빅</a>
+              <p class="info">빅터 스페란데오 | 액티브</p>
+            </div>
+          </div>
+        </div>
+        <!-- swiper-button에는 position:absolute가 내장되어 있음 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div>...</div>
+  </main>
+  <script>
+    const popular_s = new Swiper(".popular_s",{
+      slidesPerView:4, //한 번에 작성할 때, 한 화면에 보이는 슬라이드의 개수, 실제 개수보다 작게 넣어야 함
+      spaceBetween:20, // 사이 여백
+      navigation:{
+        prevEl:'.popular .container .swiper-button-prev',
+        nextEl:'.popular .container .swiper-button-next',
+      },
+      pagination: {
+        el: '.popular .container .swiper-pagination',
+      },
+      
+    })
+  </script>
+</body>
+</html>

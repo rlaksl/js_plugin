@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper-op</title>
+  <link rel="stylesheet" href="./styles/base.css">
+  <!--플러그인 필수 css cdn 연결-->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <!--플러그인 필수 JS cdn 연결-->
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <style>
+    .op1 {width: 600px; margin: 50px auto; background:thistle;}
+    .op1 .swiper-slide { height: 300px; border: 2px solid tomato;}
+    .op1 .swiper-button-prev, .op1 .swiper-button-next {color: tomato; transform: scaleX(0.7);}
+    .op1 .swiper-pagination-bullet {background: tomato;}
+    .op1 .swiper-pagination-bullet-active {background: lightblue;}
+    /* css 수정할 때 클래스명 뒤에 -bullet 붙여줘야 함. 그리고 면으로 인식하기 때문에
+    색 바꾸려면 color말고 background로 줘야 함.
+    기본적으로 opacity가 내장되어 있음
+    활성화 되어 있는 페이저만 색 바꾸고 싶으면 -bullet-active */
+    .op1 .swiper-scrollbar {background: aqua;}
+    .op1 .swiper-scrollbar-drag {background: tomato;}
+    /* scrollbar도 마찬가지로 색 바꾸려면 background !!!
+     -drag 붙여주면 활성화되는 bar에 색 다르게 넣을 수 있음 */
+     /* ==================================================op2 시작 */
+    .op2 {width: 1000px; margin: 100px auto;}
+    .op2 .swiper-wrapper {height: 400px;}
+    .op2 .swiper-slide {
+      color: gray; font-size: 5rem; font-weight: 600; text-align: center;
+      line-height: 400px; transition: all 0.5s;
+    }
+    .op2 .s1 {background: lightblue;}
+    .op2 .s2 {background: lightpink;}
+    .op2 .s3 {background: khaki;}
+    .op2 .s4 {background: lavender;}
+    .op2 .swiper-button-prev, .op2 .swiper-button-next {color: gray; transform: scale(0.8,1.4);}
+    .op2 .swiper-scrollbar {
+      width: 500px; height: 7px; left: 50%; transform: translateX(-50%);
+    }
+    .op2 .swiper-scrollbar-drag {background: tomato; opacity: 0.6;}
+  </style>
+</head>
+<body>
+  <div class="swiper op1">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">1</div>
+      <div class="swiper-slide">2</div>
+      <div class="swiper-slide">3</div>
+      <div class="swiper-slide">4</div>
+      <div class="swiper-slide">5</div>
+      <div class="swiper-slide">6</div>
+    </div> <!-- swiper-wrapper 안에는 swiper-slide만 들어갈 수 있음 -->
+    <!-- 추가 옵션 태그는 반드시 swiper-wrapper 밖에 생성 -->
+    <!-- swiper nav -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- swiper page -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+  <hr>
+  <div class="swiper op2">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide s1">월요일</div>
+      <div class="swiper-slide s2">화요일</div>
+      <div class="swiper-slide s3">수요일</div>
+      <div class="swiper-slide s4">목요일</div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+  <script>
+    const op1 = new Swiper('.op1',{
+      autoplay:{delay:2000},
+      loop:true,
+      navigation: {
+        nextEl: '.op1 .swiper-button-next',
+        prevEl: '.op1 .swiper-button-prev',
+      },
+      pagination: {
+        el: '.op1 .swiper-pagination',
+      },
+      scrollbar: {
+        el: '.op1 .swiper-scrollbar',
+      },
+    })
+    const op2 = new Swiper('.op2',{
+      loop:true,
+      navigation: {
+        nextEl: '.op2 .swiper-button-next',
+        prevEl: '.op2 .swiper-button-prev',
+      },
+      scrollbar: {
+        el: '.op2 .swiper-scrollbar',
+      },
+    })
+  </script>
+</body>
+</html>
